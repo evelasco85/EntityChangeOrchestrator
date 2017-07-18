@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework", "PEAA\C_Sharp\Framework\Framework.csproj", "{425F54F1-3962-4797-A8E5-E4B7AED0EAEA}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangeOrchestrator.Tests", "ChangeOrchestrator.Tests\ChangeOrchestrator.Tests.csproj", "{2E88214B-DD2F-4D3F-BD6C-1FFE17BFEC47}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Tests", "PEAA\C_Sharp\Framework.Tests\Framework.Tests.csproj", "{21DDB39E-F894-4B93-965D-EABEBBC8F4B2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Submodule", "Submodule", "{F4A18750-00FA-48F7-B81A-20CBF7D937CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +38,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{425F54F1-3962-4797-A8E5-E4B7AED0EAEA} = {F4A18750-00FA-48F7-B81A-20CBF7D937CF}
+		{21DDB39E-F894-4B93-965D-EABEBBC8F4B2} = {F4A18750-00FA-48F7-B81A-20CBF7D937CF}
 	EndGlobalSection
 EndGlobal

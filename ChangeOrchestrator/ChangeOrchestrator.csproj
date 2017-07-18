@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Transactions\Transaction.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PEAA\C_Sharp\Framework\Framework.csproj">
