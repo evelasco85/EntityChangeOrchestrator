@@ -12,5 +12,9 @@
     //1 Entity = Multi-data sources search keys(logs?)
     public class DataSourceAggregator : IDataSourceAggregator   
     {
+        void AggregateResult()
+        {
+            
+        }
     }
 }

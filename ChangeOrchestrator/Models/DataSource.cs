@@ -9,16 +9,16 @@ namespace ChangeOrchestrator.Models
         IList<TOutput> GetData(TSearchKey searchKey);
     }
 
-    public interface IDataSource<TSearchKey, TQueryObject, TOutput> : IDataSource<TSearchKey, TOutput>
-        where TQueryObject : IBaseQueryObject<TOutput>
+    public interface IDataSource<TSearchKey, TQueryObject, TQueryObjectSearchInput, TOutput> : IDataSource<TSearchKey, TOutput>
+        where TQueryObject : IBaseQueryObject<TOutput, TQueryObjectSearchInput>
     {
-        DataSource<TSearchKey, TQueryObject, TOutput>.SearchKeyToSearchInputTranslation SearchKeyToSearchInputTranslator { set; }
+        DataSource<TSearchKey, TQueryObject, TQueryObjectSearchInput, TOutput>.SearchKeyToSearchInputTranslation SearchKeyToSearchInputTranslator { set; }
     }
 
-    public class DataSource<TSearchKey, TQueryObject, TOutput> : IDataSource<TSearchKey, TQueryObject, TOutput>
-        where TQueryObject : IBaseQueryObject<TOutput>
+    public class DataSource<TSearchKey, TQueryObject, TQueryObjectSearchInput, TOutput> : IDataSource<TSearchKey, TQueryObject, TQueryObjectSearchInput, TOutput>
+        where TQueryObject : IBaseQueryObject<TOutput, TQueryObjectSearchInput>
     {
-        public delegate object SearchKeyToSearchInputTranslation(TSearchKey key);
+        public delegate TQueryObjectSearchInput SearchKeyToSearchInputTranslation(TSearchKey key);
 
         private IBaseQueryObject<TOutput> _queryObject;
         private SearchKeyToSearchInputTranslation _searchKeyToSearchInputTranslator;
@@ -35,7 +35,7 @@ namespace ChangeOrchestrator.Models
             //Default translator
             _searchKeyToSearchInputTranslator = new SearchKeyToSearchInputTranslation((key) =>
             {
-                return key;
+                return (TQueryObjectSearchInput)((object)key);
             });
         }
 
